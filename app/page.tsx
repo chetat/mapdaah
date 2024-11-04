@@ -1,101 +1,100 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
+import MapDashboard from '@/components/Map';
+
+export default function Page() {
+  const itemsData = [
+    // Dubai Downtown area
+    {
+      id: '1',
+      coordinates: [55.2744, 25.2048] as [number, number], // Dubai Mall/Burj Khalifa
+      timestamp: '2024-02-01T10:00:00Z'
+    },
+    {
+      id: '1',
+      coordinates: [55.2885, 25.2048] as [number, number], // DIFC
+      timestamp: '2024-02-01T11:30:00Z'
+    },
+    {
+      id: '1',
+      coordinates: [55.3034, 25.2285] as [number, number], // Dubai Healthcare City
+      timestamp: '2024-02-01T13:00:00Z'
+    },
+    // Different item in Dubai Marina area
+    {
+      id: '2',
+      coordinates: [55.1367, 25.0806] as [number, number], // Dubai Marina Mall
+      timestamp: '2024-02-01T09:00:00Z'
+    },
+    {
+      id: '2',
+      coordinates: [55.1484, 25.0889] as [number, number], // JLT
+      timestamp: '2024-02-01T10:15:00Z'
+    },
+    {
+      id: '2',
+      coordinates: [55.1321, 25.0656] as [number, number], // Dubai Marina Yacht Club
+      timestamp: '2024-02-01T11:45:00Z'
+    },
+    // Third item covering Business Bay
+    {
+      id: '3',
+      coordinates: [55.2644, 25.1872] as [number, number], // Business Bay
+      timestamp: '2024-02-01T14:00:00Z'
+    },
+    {
+      id: '3',
+      coordinates: [55.2697, 25.1927] as [number, number], // Dubai Water Canal
+      timestamp: '2024-02-01T15:30:00Z'
+    },
+    {
+      id: '3',
+      coordinates: [55.2585, 25.1833] as [number, number], // Bay Avenue
+      timestamp: '2024-02-01T17:00:00Z'
+    }
+  ];
+
+  const pointsData = [
+    {
+      name: 'Burj Khalifa',
+      coordinates: [55.2744, 25.2048] as [number, number]
+    },
+    {
+      name: 'Dubai Mall',
+      coordinates: [55.2796, 25.1972] as [number, number]
+    },
+    {
+      name: 'Dubai Marina',
+      coordinates: [55.1367, 25.0806] as [number, number]
+    },
+    {
+      name: 'Palm Jumeirah',
+      coordinates: [55.1384, 25.1123] as [number, number]
+    },
+    {
+      name: 'Dubai International Airport',
+      coordinates: [55.3644, 25.2532] as [number, number]
+    },
+    {
+      name: 'Burj Al Arab',
+      coordinates: [55.1854, 25.1412] as [number, number]
+    },
+    {
+      name: 'Dubai Creek',
+      coordinates: [55.3241, 25.2485] as [number, number]
+    },
+    {
+      name: 'Gold Souk',
+      coordinates: [55.2852, 25.2867] as [number, number]
+    }
+  ];
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+    <MapDashboard 
+      itemsData={itemsData} 
+      pointsData={pointsData} 
+      defaultCenter={[55.2708, 25.2048]} // Center on Downtown Dubai
+      defaultZoom={11} // Zoom level to show Dubai city
+    />
   );
 }
